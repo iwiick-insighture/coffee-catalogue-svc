@@ -3,6 +3,15 @@ import { join } from "path";
 
 interface Config {
   port: number;
+  postgres: {
+    host: string;
+    port: number;
+    database: string;
+    username: string;
+    password: string;
+    synchronize: boolean;
+    migrationRuns: boolean;
+  };
 }
 
 const configFile = join(process.cwd(), "./config.json");
