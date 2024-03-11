@@ -1,0 +1,459 @@
+{
+  "info": {
+    "_postman_id": "7f5f7e95-f119-4690-9ff1-79f30ecf652e",
+    "name": "coffee-catalouge-svc",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29081713"
+  },
+  "item": [
+    {
+      "name": "Get Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Health",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/health",
+              "host": ["{{base_url}}"],
+              "path": ["health"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "68"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"44-KF4iAMmxWtUPH/KjZZUCZztllZY\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 08:51:18 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"coffee-catalogue-svc is up and running on port :: 5000\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Coffees",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Health Copy",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "144"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"90-MeHPOSUS/SKK/JWc06y0BQ12blI\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 09:59:06 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"All Coffees fetched\",\n    \"data\": [\n        {\n            \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n            \"name\": \"iwiick-coff\",\n            \"quantity\": 50,\n            \"price\": \"1.3\"\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Coffee By Id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+          "host": ["{{base_url}}"],
+          "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Coffees Copy",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+              "host": ["{{base_url}}"],
+              "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "188"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"bc-wBeEd9AUVqhXs2vr4R0BuyGrnnI\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 09:58:58 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Coffee found by ID :: coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n    \"data\": {\n        \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n        \"name\": \"iwiick-coff\",\n        \"quantity\": 50,\n        \"price\": \"1.3\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Add new Coffee",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"iwiick\",\r\n    \"quantity\": 45,\r\n    \"price\": 1.3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/",
+          "host": ["{{base_url}}"],
+          "path": [""]
+        }
+      },
+      "response": [
+        {
+          "name": "Get Coffee By Id Copy",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"iwiick\",\r\n    \"quantity\": 45,\r\n    \"price\": 1.3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": ["{{base_url}}"],
+              "path": [""]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "132"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"84-KfWOuNHlX2pjeHZTAn9Y4v2+UQA\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 09:55:43 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Added New Coffee\",\n    \"data\": {\n        \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n        \"name\": \"iwiick\",\n        \"quantity\": 45,\n        \"price\": 1.3\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Update Coffee By Id",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"name\": \"iwiick-coff\",\r\n    \"quantity\": 50\r\n    \"price\": 1.3\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+          "host": ["{{base_url}}"],
+          "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+        }
+      },
+      "response": [
+        {
+          "name": "Add new Coffee Copy",
+          "originalRequest": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"iwiick-coff\",\r\n    \"quantity\": 50\r\n    \"price\": 1.3\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+              "host": ["{{base_url}}"],
+              "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "119"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"77-65ON2dThGQziUyYxI01Y8XrGC3I\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 09:57:11 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Updated Coffee :: coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n    \"data\": {\n        \"name\": \"iwiick-coff\",\n        \"quantity\": 50\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete Coffee By Id",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/1234",
+          "host": ["{{base_url}}"],
+          "path": ["1234"]
+        }
+      },
+      "response": [
+        {
+          "name": "Update Coffee By Id Copy",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base_url}}/1234",
+              "host": ["{{base_url}}"],
+              "path": ["1234"]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "36"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"24-naeZ9ALNsELCKwHoZoBLLcEQ9Sk\""
+            },
+            {
+              "key": "Date",
+              "value": "Mon, 11 Mar 2024 08:53:17 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"message\": \"Coffee Deleted :: 1234\"\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ]
+}

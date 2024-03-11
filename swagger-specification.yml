@@ -1,0 +1,119 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Coffee Catalogue Service"
+basePath: "http://localhost:5000"
+schemes:
+  - "http"
+paths:
+  /health:
+    get:
+      summary: "Get Health"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+  /:
+    get:
+      summary: "Get Coffees"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              data:
+                type: "array"
+                items:
+                  type: "object"
+                  properties:
+                    id:
+                      type: "string"
+                    name:
+                      type: "string"
+                    quantity:
+                      type: "integer"
+                    price:
+                      type: "string"
+    post:
+      summary: "Add new Coffee"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Coffee object"
+          required: true
+          schema:
+            $ref: "#/definitions/Coffee"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              data:
+                $ref: "#/definitions/Coffee"
+  /coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c":
+    get:
+      summary: "Get Coffee By Id"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Coffee"
+    put:
+      summary: "Update Coffee By Id"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - in: "body"
+          name: "body"
+          description: "Coffee object"
+          required: true
+          schema:
+            $ref: "#/definitions/Coffee"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+              data:
+                $ref: "#/definitions/Coffee"
+    delete:
+      summary: "Delete Coffee By Id"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "object"
+            properties:
+              message:
+                type: "string"
+definitions:
+  Coffee:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      name:
+        type: "string"
+      quantity:
+        type: "integer"
+      price:
+        type: "string"
