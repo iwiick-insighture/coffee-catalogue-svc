@@ -1,5 +1,5 @@
 # coffee-catalogue-svc
-A simple Coffee Serivice
+A simple Coffee Service
 
 Create a `config.json` file inside `src/configs` to start
 
