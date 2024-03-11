@@ -1,2 +1,2 @@
-# coffee-service
+# coffee-catalogue-svc
 A simple Coffee Serivice
