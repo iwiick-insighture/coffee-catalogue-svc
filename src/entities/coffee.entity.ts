@@ -20,12 +20,19 @@ export class Coffee {
   })
   readonly price: number;
 
+  @Column({
+    type: "varchar",
+    nullable: true,
+  })
+  readonly imageUrl?: string;
+
   constructor(data: Coffee) {
     if (data) {
       this.id = data?.id;
       this.name = data.name;
       this.quantity = data.quantity;
       this.price = data.price;
+      this.imageUrl = data.imageUrl;
     }
   }
 }
@@ -35,6 +42,7 @@ export const CoffeeSchema = Joi.object({
   name: Joi.string().required(),
   quantity: Joi.string().required(),
   price: Joi.string().required(),
+  imageUrl: Joi.string(),
 }).options({
   abortEarly: false,
 });

@@ -1,119 +1,157 @@
-swagger: "2.0"
+openapi: 3.0.0
 info:
-  version: "1.0.0"
-  title: "Coffee Catalogue Service"
-basePath: "http://localhost:5000"
-schemes:
-  - "http"
+  title: Coffee Catalogue Service API
+  version: 1.0.0
 paths:
   /health:
     get:
-      summary: "Get Health"
+      summary: Get Health
       responses:
-        200:
-          description: "OK"
-          schema:
-            type: "object"
-            properties:
-              message:
-                type: "string"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
   /:
     get:
-      summary: "Get Coffees"
+      summary: Get Coffees
       responses:
-        200:
-          description: "OK"
-          schema:
-            type: "object"
-            properties:
-              message:
-                type: "string"
-              data:
-                type: "array"
-                items:
-                  type: "object"
-                  properties:
-                    id:
-                      type: "string"
-                    name:
-                      type: "string"
-                    quantity:
-                      type: "integer"
-                    price:
-                      type: "string"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/Coffee"
     post:
-      summary: "Add new Coffee"
-      consumes:
-        - "application/json"
-      produces:
-        - "application/json"
-      parameters:
-        - in: "body"
-          name: "body"
-          description: "Coffee object"
-          required: true
-          schema:
-            $ref: "#/definitions/Coffee"
+      summary: Add new Coffee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/NewCoffee"
       responses:
-        200:
-          description: "OK"
-          schema:
-            type: "object"
-            properties:
-              message:
-                type: "string"
-              data:
-                $ref: "#/definitions/Coffee"
-  /coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c":
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/Coffee"
+  "/{coffeeId}":
     get:
-      summary: "Get Coffee By Id"
-      responses:
-        200:
-          description: "OK"
-          schema:
-            $ref: "#/definitions/Coffee"
-    put:
-      summary: "Update Coffee By Id"
-      consumes:
-        - "application/json"
-      produces:
-        - "application/json"
+      summary: Get Coffee By Id
       parameters:
-        - in: "body"
-          name: "body"
-          description: "Coffee object"
+        - in: path
+          name: coffeeId
           required: true
           schema:
-            $ref: "#/definitions/Coffee"
+            type: string
       responses:
-        200:
-          description: "OK"
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Coffee"
+    put:
+      summary: Update Coffee By Id
+      parameters:
+        - in: path
+          name: coffeeId
+          required: true
           schema:
-            type: "object"
-            properties:
-              message:
-                type: "string"
-              data:
-                $ref: "#/definitions/Coffee"
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateCoffee"
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    $ref: "#/components/schemas/UpdatedCoffee"
     delete:
-      summary: "Delete Coffee By Id"
-      responses:
-        200:
-          description: "OK"
+      summary: Delete Coffee By Id
+      parameters:
+        - in: path
+          name: coffeeId
+          required: true
           schema:
-            type: "object"
-            properties:
-              message:
-                type: "string"
-definitions:
-  Coffee:
-    type: "object"
-    properties:
-      id:
-        type: "string"
-      name:
-        type: "string"
-      quantity:
-        type: "integer"
-      price:
-        type: "string"
+            type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                  data:
+                    type: string
+components:
+  schemas:
+    Coffee:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: string
+        imageUrl:
+          type: string
+    NewCoffee:
+      type: object
+      properties:
+        name:
+          type: string
+        quantity:
+          type: integer
+        price:
+          type: string
+        imageUrl:
+          type: string
+    UpdateCoffee:
+      type: object
+      properties:
+        quantity:
+          type: integer
+        price:
+          type: string
+    UpdatedCoffee:
+      type: object
+      properties:
+        quantity:
+          type: integer
+        price:
+          type: string

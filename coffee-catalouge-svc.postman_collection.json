@@ -55,7 +55,7 @@
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 08:51:18 GMT"
+              "value": "Tue, 12 Mar 2024 05:18:11 GMT"
             },
             {
               "key": "Connection",
@@ -84,7 +84,7 @@
       },
       "response": [
         {
-          "name": "Get Health Copy",
+          "name": "Get Coffees",
           "originalRequest": {
             "method": "GET",
             "header": [],
@@ -112,15 +112,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "144"
+              "value": "383"
             },
             {
               "key": "ETag",
-              "value": "W/\"90-MeHPOSUS/SKK/JWc06y0BQ12blI\""
+              "value": "W/\"17f-zpJlihR3wM+bzpkanIOJWlz2904\""
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 09:59:06 GMT"
+              "value": "Tue, 12 Mar 2024 05:18:15 GMT"
             },
             {
               "key": "Connection",
@@ -132,7 +132,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"message\": \"All Coffees fetched\",\n    \"data\": [\n        {\n            \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n            \"name\": \"iwiick-coff\",\n            \"quantity\": 50,\n            \"price\": \"1.3\"\n        }\n    ]\n}"
+          "body": "{\n    \"message\": \"All Coffees fetched\",\n    \"data\": [\n        {\n            \"id\": \"coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348\",\n            \"name\": \"Cappuccino\",\n            \"quantity\": 45,\n            \"price\": \"4.36\",\n            \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\n        },\n        {\n            \"id\": \"coffee_fb7644b8-8c82-4fb6-9b8b-2fb0b8b73708\",\n            \"name\": \"Latte\",\n            \"quantity\": 20,\n            \"price\": \"3.25\",\n            \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\n        }\n    ]\n}"
         }
       ]
     },
@@ -142,21 +142,21 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+          "raw": "{{base_url}}/coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348",
           "host": ["{{base_url}}"],
-          "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+          "path": ["coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348"]
         }
       },
       "response": [
         {
-          "name": "Get Coffees Copy",
+          "name": "Get Coffee By Id",
           "originalRequest": {
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+              "raw": "{{base_url}}/coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348",
               "host": ["{{base_url}}"],
-              "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+              "path": ["coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348"]
             }
           },
           "status": "OK",
@@ -177,15 +177,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "188"
+              "value": "259"
             },
             {
               "key": "ETag",
-              "value": "W/\"bc-wBeEd9AUVqhXs2vr4R0BuyGrnnI\""
+              "value": "W/\"103-XD8tRZaXraFkBCf/moebbDuo3NU\""
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 09:58:58 GMT"
+              "value": "Tue, 12 Mar 2024 05:18:29 GMT"
             },
             {
               "key": "Connection",
@@ -197,7 +197,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"message\": \"Coffee found by ID :: coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n    \"data\": {\n        \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n        \"name\": \"iwiick-coff\",\n        \"quantity\": 50,\n        \"price\": \"1.3\"\n    }\n}"
+          "body": "{\n    \"message\": \"Coffee found by ID :: coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348\",\n    \"data\": {\n        \"id\": \"coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348\",\n        \"name\": \"Cappuccino\",\n        \"quantity\": 45,\n        \"price\": \"4.36\",\n        \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\n    }\n}"
         }
       ]
     },
@@ -208,7 +208,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"name\": \"iwiick\",\r\n    \"quantity\": 45,\r\n    \"price\": 1.3\r\n}",
+          "raw": "{\r\n    \"name\": \"Latte Mild\",\r\n    \"quantity\": 20,\r\n    \"price\": 3.25,\r\n    \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -223,13 +223,13 @@
       },
       "response": [
         {
-          "name": "Get Coffee By Id Copy",
+          "name": "Add new Coffee",
           "originalRequest": {
             "method": "POST",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"iwiick\",\r\n    \"quantity\": 45,\r\n    \"price\": 1.3\r\n}",
+              "raw": "{\r\n    \"name\": \"Latte Mild\",\r\n    \"quantity\": 20,\r\n    \"price\": 3.25,\r\n    \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -260,15 +260,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "132"
+              "value": "208"
             },
             {
               "key": "ETag",
-              "value": "W/\"84-KfWOuNHlX2pjeHZTAn9Y4v2+UQA\""
+              "value": "W/\"d0-1eKVRDnFsaPuILflkgnd1wxHCjs\""
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 09:55:43 GMT"
+              "value": "Tue, 12 Mar 2024 05:19:48 GMT"
             },
             {
               "key": "Connection",
@@ -280,7 +280,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"message\": \"Added New Coffee\",\n    \"data\": {\n        \"id\": \"coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n        \"name\": \"iwiick\",\n        \"quantity\": 45,\n        \"price\": 1.3\n    }\n}"
+          "body": "{\n    \"message\": \"Added New Coffee\",\n    \"data\": {\n        \"id\": \"coffee_651954da-5a4d-464c-8ff0-e7469e4d098b\",\n        \"name\": \"Latte Mild\",\n        \"quantity\": 20,\n        \"price\": 3.25,\n        \"imageUrl\": \"https://iwiick-coffee.s3.amazonaws.com/default-coffee.jpg\"\n    }\n}"
         }
       ]
     },
@@ -291,7 +291,7 @@
         "header": [],
         "body": {
           "mode": "raw",
-          "raw": "{\r\n    \"name\": \"iwiick-coff\",\r\n    \"quantity\": 50\r\n    \"price\": 1.3\r\n}",
+          "raw": "{\r\n    \"quantity\": 50,\r\n    \"price\": 4.41\r\n}",
           "options": {
             "raw": {
               "language": "json"
@@ -299,20 +299,20 @@
           }
         },
         "url": {
-          "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+          "raw": "{{base_url}}/coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348",
           "host": ["{{base_url}}"],
-          "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+          "path": ["coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348"]
         }
       },
       "response": [
         {
-          "name": "Add new Coffee Copy",
+          "name": "Update Coffee By Id",
           "originalRequest": {
             "method": "PUT",
             "header": [],
             "body": {
               "mode": "raw",
-              "raw": "{\r\n    \"name\": \"iwiick-coff\",\r\n    \"quantity\": 50\r\n    \"price\": 1.3\r\n}",
+              "raw": "{\r\n    \"quantity\": 50,\r\n    \"price\": 4.41\r\n}",
               "options": {
                 "raw": {
                   "language": "json"
@@ -320,9 +320,9 @@
               }
             },
             "url": {
-              "raw": "{{base_url}}/coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c",
+              "raw": "{{base_url}}/coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348",
               "host": ["{{base_url}}"],
-              "path": ["coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c"]
+              "path": ["coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348"]
             }
           },
           "status": "OK",
@@ -343,15 +343,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "119"
+              "value": "111"
             },
             {
               "key": "ETag",
-              "value": "W/\"77-65ON2dThGQziUyYxI01Y8XrGC3I\""
+              "value": "W/\"6f-bqpMO0T7oValoceV/q9TSQZQ7Uk\""
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 09:57:11 GMT"
+              "value": "Tue, 12 Mar 2024 05:19:23 GMT"
             },
             {
               "key": "Connection",
@@ -363,7 +363,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"message\": \"Updated Coffee :: coffee_f73e8715-5b6a-4fd9-9c8f-103987a50c9c\",\n    \"data\": {\n        \"name\": \"iwiick-coff\",\n        \"quantity\": 50\n    }\n}"
+          "body": "{\n    \"message\": \"Updated Coffee :: coffee_325f4fd3-b8b1-445b-8bad-126fc38f6348\",\n    \"data\": {\n        \"quantity\": 50,\n        \"price\": 4.41\n    }\n}"
         }
       ]
     },
@@ -373,21 +373,21 @@
         "method": "DELETE",
         "header": [],
         "url": {
-          "raw": "{{base_url}}/1234",
+          "raw": "{{base_url}}/coffee_651954da-5a4d-464c-8ff0-e7469e4d098b",
           "host": ["{{base_url}}"],
-          "path": ["1234"]
+          "path": ["coffee_651954da-5a4d-464c-8ff0-e7469e4d098b"]
         }
       },
       "response": [
         {
-          "name": "Update Coffee By Id Copy",
+          "name": "Delete Coffee By Id",
           "originalRequest": {
             "method": "DELETE",
             "header": [],
             "url": {
-              "raw": "{{base_url}}/1234",
+              "raw": "{{base_url}}/coffee_651954da-5a4d-464c-8ff0-e7469e4d098b",
               "host": ["{{base_url}}"],
-              "path": ["1234"]
+              "path": ["coffee_651954da-5a4d-464c-8ff0-e7469e4d098b"]
             }
           },
           "status": "OK",
@@ -408,15 +408,15 @@
             },
             {
               "key": "Content-Length",
-              "value": "36"
+              "value": "128"
             },
             {
               "key": "ETag",
-              "value": "W/\"24-naeZ9ALNsELCKwHoZoBLLcEQ9Sk\""
+              "value": "W/\"80-RqUdl//ViEcxwEHl1riX5VyZ93M\""
             },
             {
               "key": "Date",
-              "value": "Mon, 11 Mar 2024 08:53:17 GMT"
+              "value": "Tue, 12 Mar 2024 05:19:56 GMT"
             },
             {
               "key": "Connection",
@@ -428,7 +428,7 @@
             }
           ],
           "cookie": [],
-          "body": "{\n    \"message\": \"Coffee Deleted :: 1234\"\n}"
+          "body": "{\n    \"message\": \"Coffee Deleted :: coffee_651954da-5a4d-464c-8ff0-e7469e4d098b\",\n    \"data\": \"coffee_651954da-5a4d-464c-8ff0-e7469e4d098b\"\n}"
         }
       ]
     }
