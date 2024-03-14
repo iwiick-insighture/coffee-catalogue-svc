@@ -47,20 +47,22 @@ export const getCoffeeByIdHandler = async (req: Request, res: Response) => {
   }
 };
 
+// TODO :: Add Error Handling Later :)
 export const addCoffeeHandler = async (req: Request, res: Response) => {
-  try {
-    const id = getPrefixedUUID();
-    const newCoffee = req.body;
-    const data = await addCoffee({ ...newCoffee, id });
-    res.status(HttpStatusCode.Ok).json({
-      message: `Added New Coffee`,
-      data,
-    } as ApiResponse);
-  } catch (err) {
-    res.status(HttpStatusCode.BadRequest).json({
-      error: err,
-    } as ApiResponse);
+  const id = getPrefixedUUID();
+  const newCoffee = req.body;
+
+  if (!newCoffee.name) {
+    console.log(
+      `Missing Name in Coffee :: ${{ ...newCoffee }.namee.toLowerCase()}`
+    );
   }
+
+  const data = await addCoffee({ ...newCoffee, id });
+  res.status(HttpStatusCode.Ok).json({
+    message: `Added New Coffee`,
+    data,
+  } as ApiResponse);
 };
 
 export const updateCoffeeHandler = async (req: Request, res: Response) => {
