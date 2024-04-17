@@ -127,6 +127,25 @@ paths:
           description: Not Found
         '500':
           description: Internal Server Error
+  /teams:
+    post:
+      summary: Generate Token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
 components:
   schemas:
     Coffee:
@@ -166,4 +185,11 @@ components:
         quantity:
           type: integer
         price:
+          type: string
+    User:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
           type: string
