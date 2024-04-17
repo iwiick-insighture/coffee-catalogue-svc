@@ -6,7 +6,7 @@ paths:
   /health:
     get:
       summary: Get Health
-      responss:
+      responses:
         '200':
           description: OK
           content:
