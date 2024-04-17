@@ -10,7 +10,7 @@ paths:
         '200':
           description: OK
           content:
-            application/json:
+            applieeecation/json:
               schema:
                 type: object
                 properties:
@@ -69,6 +69,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Coffee'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
     put:
       summary: Update Coffee By Id
       parameters:
@@ -95,6 +99,10 @@ paths:
                     type: string
                   data:
                     $ref: '#/components/schemas/UpdatedCoffee'
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
     delete:
       summary: Delete Coffee By Id
       parameters:
@@ -115,6 +123,10 @@ paths:
                     type: string
                   data:
                     type: string
+        '404':
+          description: Not Found
+        '500':
+          description: Internal Server Error
 components:
   schemas:
     Coffee:
