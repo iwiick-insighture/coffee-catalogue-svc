@@ -7,7 +7,7 @@ paths:
     get:
       summary: Get Health
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -20,7 +20,7 @@ paths:
     get:
       summary: Get Coffees
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -32,7 +32,7 @@ paths:
                   data:
                     type: array
                     items:
-                      $ref: "#/components/schemas/Coffee"
+                      $ref: '#/components/schemas/Coffee'
     post:
       summary: Add new Coffee
       requestBody:
@@ -40,9 +40,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/NewCoffee"
+              $ref: '#/components/schemas/NewCoffee'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -52,8 +52,8 @@ paths:
                   message:
                     type: string
                   data:
-                    $ref: "#/components/schemas/Coffee"
-  "/{coffeeId}":
+                    $ref: '#/components/schemas/Coffee'
+  /{coffeeId}:
     get:
       summary: Get Coffee By Id
       parameters:
@@ -63,12 +63,12 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Coffee"
+                $ref: '#/components/schemas/Coffee'
     put:
       summary: Update Coffee By Id
       parameters:
@@ -82,9 +82,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/UpdateCoffee"
+              $ref: '#/components/schemas/UpdateCoffee'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
@@ -94,7 +94,7 @@ paths:
                   message:
                     type: string
                   data:
-                    $ref: "#/components/schemas/UpdatedCoffee"
+                    $ref: '#/components/schemas/UpdatedCoffee'
     delete:
       summary: Delete Coffee By Id
       parameters:
@@ -104,7 +104,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
