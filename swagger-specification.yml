@@ -10,7 +10,7 @@ paths:
         '200':
           description: OK
           content:
-            applieeecation/json:
+            application/json:
               schema:
                 type: object
                 properties:
