@@ -2,7 +2,7 @@ name: pr-ai_app_7107c5d_env_53c8a57 Pipeline (Skyu Generated)
 'on':
   workflow_dispatch: {}
   repository_dispatch:
-    types: pipeline_55d37e7d-7433-49f6-b812-b6fab4619a03
+    types: pipeline_55d37e7d-7433-49f6-b812-b6fab4619a03 - OLDDD
 env:
   ENCODED_PIPELINE_SECRET: ${{secrets.COFFEECATALOGUESVC_PRAI_APP_7107C5D_ENV_53C8A57}}
   COMMIT_ID: ${{github.event.client_payload.commitId || github.sha || github.run_id}}
