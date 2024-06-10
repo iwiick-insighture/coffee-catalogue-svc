@@ -126,7 +126,7 @@ jobs:
                       echo "TASK STATUS RESPONSEEEEEEEEEEEEE: $final_response"
                       task_status=$(echo "$final_response" | jq -r '.status')
 
-                      if [ "$task_status" == "processing" ]; then
+                      if [ "$task_status" != "completed" ]; then
                       echo "Task Processing ..."
                       sleep 10  
                       else
