@@ -116,7 +116,7 @@ jobs:
 
                   task_id=$(echo "$response" | jq -r '.task_id')
 
-                  if [-n "$task_id"]; then
+                  if [ -n "$task_id" ]; then
                     echo "Task Response: $response"
                     echo "Task ID: $task_id"
 
