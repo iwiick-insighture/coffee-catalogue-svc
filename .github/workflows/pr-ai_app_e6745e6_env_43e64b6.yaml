@@ -113,7 +113,8 @@ jobs:
 
                   echo "Starting Task"
                   response=$(curl -X POST -d "$payload"  -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors/')
-
+                  echo "RESPONSEEEEEEEEEEEEEE: $response"
+                  
                   task_id=$(echo "$response" | jq -r '.task_id')
                   echo "Task ID: $task_id"
 
