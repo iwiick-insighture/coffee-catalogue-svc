@@ -1,0 +1,1 @@
+Fix bugs in coffee-catalogue-svc handlers, including error handling and status codes
