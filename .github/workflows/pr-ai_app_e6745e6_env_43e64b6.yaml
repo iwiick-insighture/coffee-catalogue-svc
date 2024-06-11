@@ -2,7 +2,7 @@ name: pr-ai_app_e6745e6_env_43e64b6 Pipeline (Skyu Generated)
 'on':
   workflow_dispatch: {}
   repository_dispatch:
-    types: pipeline_85769948-5302-44f8-acaf-bf93c32a2a59
+    types: pipeline_610bd986-2e65-472e-8d3d-dc59e7dd6772
 env:
   ENCODED_PIPELINE_SECRET: ${{secrets.COFFEECATALOGUESVC_PRAI_APP_E6745E6_ENV_43E64B6}}
   COMMIT_ID: ${{github.event.client_payload.commitId || github.sha || github.run_id}}
@@ -139,7 +139,6 @@ jobs:
                       echo "SUCCESS :: $final_response"
                       correction_files=$(echo "${final_response}" | jq -r '.result' | jq -r '.fixes')
                       ai_commit_message=$(echo "${final_response}" | jq -r '.result' | jq -r '.commit_message')
-                      echo "Commit Message: $ai_commit_message"
 
                       # Loop through the JSON object
                       echo "${correction_files}" | jq -r 'to_entries[] | @base64' | while read -r line; do
@@ -154,7 +153,6 @@ jobs:
                       done
                       
                       echo "All files have been created."
-                      echo "identified-files=$identifiedFiles" >> $GITHUB_OUTPUT
                       echo "ai_commit_message=$ai_commit_message" >> $GITHUB_OUTPUT
                     else
                       echo "FAILED :: $final_response"
