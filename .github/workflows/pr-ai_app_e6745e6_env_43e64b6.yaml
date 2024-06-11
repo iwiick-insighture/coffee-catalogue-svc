@@ -2,7 +2,7 @@ name: pr-ai_app_e6745e6_env_43e64b6 Pipeline (Skyu Generated)
 'on':
   workflow_dispatch: {}
   repository_dispatch:
-    types: pipeline_7017bad0-8186-4857-b5cd-cf5a25c39a82
+    types: pipeline_d965df9d-1deb-4e79-99fc-8e27292d1804
 env:
   ENCODED_PIPELINE_SECRET: ${{secrets.COFFEECATALOGUESVC_PRAI_APP_E6745E6_ENV_43E64B6}}
   COMMIT_ID: ${{github.event.client_payload.commitId || github.sha || github.run_id}}
@@ -116,13 +116,16 @@ jobs:
 
                   echo "Task Response: $response"
                   task_id=$(echo "$response" | jq -r '.task_id')
-                  task_status_url=${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors/$task_id
+                  echo "AI_TASK_ID=$task_id" >> GITHUB_ENV
+                
+      - name: 'Run :: Process AI Task'
+        run: |2-
 
-                  if [ -n "$task_id" ]; then
-                    echo "Task ID: $task_id"
+                  if [ -n "${{ env.AI_TASK_ID }}" ]; then
+                    echo "Task ID: ${{ env.AI_TASK_ID }}"
 
                     while true; do
-                      final_response=$(curl -X GET -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '$task_status_url')
+                      final_response=$(curl -X GET -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors/${{ env.AI_TASK_ID }}')
                       echo "Task Status Response: $final_response"
                       task_status=$(echo "$final_response" | jq -r '.status')
 
@@ -159,7 +162,7 @@ jobs:
                       exit 1
                     fi
                   else
-                    echo "Failed to Start Task"
+                    echo "Failed to Process Task"
                     exit 1
                   fi
                 
