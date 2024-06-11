@@ -2,7 +2,7 @@ name: pr-ai_app_e6745e6_env_43e64b6 Pipeline (Skyu Generated)
 'on':
   workflow_dispatch: {}
   repository_dispatch:
-    types: pipeline_6c682dbf-bc9a-4ec2-bff5-081e98114066
+    types: pipeline_cae9b818-c2d9-4d27-aa4f-4939572c4ee5
 env:
   ENCODED_PIPELINE_SECRET: ${{secrets.COFFEECATALOGUESVC_PRAI_APP_E6745E6_ENV_43E64B6}}
   COMMIT_ID: ${{github.event.client_payload.commitId || github.sha || github.run_id}}
@@ -137,7 +137,8 @@ jobs:
                     status_code=$?
                     if [ $status_code -eq 0 ]; then
                       echo "SUCCESS :: $final_response"
-                      correction_files=$(echo "${final_response}" | jq -r '.result')
+                      correction_files=$(echo "${final_response}" | jq -r '.fixes')
+                      ai_commit_message=$(echo "${final_response}" | jq -r '.commit_message')
 
                       # Loop through the JSON object
                       echo "${correction_files}" | jq -r 'to_entries[] | @base64' | while read -r line; do
@@ -153,6 +154,7 @@ jobs:
                       
                       echo "All files have been created."
                       echo "identified-files=$identifiedFiles" >> $GITHUB_OUTPUT
+                      echo "ai_commit_message=$ai_commit_message" >> $GITHUB_OUTPUT
                     else
                       echo "FAILED :: $final_response"
                       exit 1
@@ -165,10 +167,11 @@ jobs:
       - name: 'Run :: Commit changes'
         run: |2-
 
+                  echo "Commit Message: ${{ steps.send-file.outputs.ai_commit_message }}"
                   git config --global user.email "actions@github.com"
                   git config --global user.name "GitHub Actions"
                   git add .
-                  git commit -m "fix issue"
+                  git commit -m "${{ steps.send-file.outputs.ai_commit_message }}"
                 
       - name: 'Run :: Push changes'
         run: git push origin fix-issue-${{ github.run_id }}
@@ -178,7 +181,7 @@ jobs:
           source_branch: fix-issue-${{ github.run_id }}
           destination_branch: main
           pr_title: Fix Issue-${{ github.run_id }}
-          pr_body: This pull request fixes the error contained in the logs.
+          pr_body: ${{ steps.send-file.outputs.ai_commit_message }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
   _status-success:
     name: _status Success
