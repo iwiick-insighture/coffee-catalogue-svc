@@ -115,14 +115,14 @@ jobs:
                   response=$(curl -X POST -d "$payload"  -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors')
 
                   task_id=$(echo "$response" | jq -r '.task_id')
-                  echo "ai-task-id=$task_id" >> $GITHUB_ENV
+                  echo "AI_TASK_ID=$task_id" >> $GITHUB_ENV
 
-                  if [ -n "$task_id" ]; then
+                  if [ -n "${{ env.AI_TASK_ID }}" ]; then
                     echo "Task Response: $response"
-                    echo "Task ID: ${{ env.ai-task-id }}"
+                    echo "Task ID: ${{ env.AI_TASK_ID }}"
 
                     while true; do
-                      final_response=$(curl -X GET -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors/${{ env.ai-task-id }}')
+                      final_response=$(curl -X GET -H 'Authorization: ${{ env.SERVICE_ACC_ACCESS_TOKEN }}' -H 'x-auth-by: sa' -H 'x-organization-id: ${{ env.PIPELINE_ORGANIZATION_ID }}' -H 'x-project-id: ${{ env.PIPELINE_PROJECT_ID }}' -H 'x-trace-id: ${{ env.PIPELINE_TRACE_ID }}' -H 'x-resource-id: ${{ env.PIPELINE_APPLICATION_ID }}' -H 'Content-Type: application/json'  '${{ env.AI_SUGGESTED_SOLUTION_EP }}/fix-errors/${{ env.AI_TASK_ID }}')
                       echo "Task Status Response: $final_response"
                       task_status=$(echo "$final_response" | jq -r '.status')
 
