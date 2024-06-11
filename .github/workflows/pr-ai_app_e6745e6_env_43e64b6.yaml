@@ -2,7 +2,7 @@ name: pr-ai_app_e6745e6_env_43e64b6 Pipeline (Skyu Generated)
 'on':
   workflow_dispatch: {}
   repository_dispatch:
-    types: pipeline_d965df9d-1deb-4e79-99fc-8e27292d1804
+    types: pipeline_71276087-7943-453d-919f-b0f84778374e
 env:
   ENCODED_PIPELINE_SECRET: ${{secrets.COFFEECATALOGUESVC_PRAI_APP_E6745E6_ENV_43E64B6}}
   COMMIT_ID: ${{github.event.client_payload.commitId || github.sha || github.run_id}}
@@ -116,9 +116,11 @@ jobs:
 
                   echo "Task Response: $response"
                   task_id=$(echo "$response" | jq -r '.task_id')
-                  echo "AI_TASK_ID=$task_id" >> GITHUB_ENV
+                  echo "AI_TASK_ID=$task_id" >> GITHUB_OUTPUT  
                 
       - name: 'Run :: Process AI Task'
+        env:
+          AI_TASK_ID: ${{ steps.send-file.outputs.AI_TASK_ID }}
         run: |2-
 
                   if [ -n "${{ env.AI_TASK_ID }}" ]; then
